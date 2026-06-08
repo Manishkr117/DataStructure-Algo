@@ -12,6 +12,8 @@ using System.Diagnostics;
 LinkedListOperations linkedListOperations = new LinkedListOperations();
 
 Node node = new Node();
+Node beggningNode = new Node();
+beggningNode.next = node; //preseving the head position as we can't navigate backward
 // insert at start
 //insert at given index
 //delete at
@@ -39,7 +41,7 @@ int.TryParse(input, out  choice);
             }
         case 2:
             {
-                linkedListOperations.PrintAllEmenents(node);
+                linkedListOperations.PrintAllEmenents(beggningNode);
                 break;
             }
         case 3:
@@ -58,11 +60,11 @@ int.TryParse(input, out  choice);
                 //Press 4 to insert elemet at given position
                 Console.WriteLine("Press enter the index followed by enter");
                 string? index = Console.ReadLine();
-                if(int.TryParse(index,out int positionAtWhichItem2BAdded))
+                if(int.TryParse(index,out int positionAtWhichItem2BAdded) && positionAtWhichItem2BAdded > 0)
                 {
                     Console.WriteLine("Press enter the element to be  followed by enter");
                 string? element = Console.ReadLine();
-                linkedListOperations.AddElementAtGivenIndex( node, element,  positionAtWhichItem2BAdded);
+                linkedListOperations.AddElementAtGivenIndex(beggningNode, element,  positionAtWhichItem2BAdded);
                 }
                 else{
                     Console.WriteLine("Ypu have entered wrong index ");
@@ -77,7 +79,7 @@ int.TryParse(input, out  choice);
                 string? index = Console.ReadLine();
                 if(int.TryParse(index,out int positionAtWhichItem2BAdded))
                 {
-                linkedListOperations.RemoveElementAtGivenIndex( node,  positionAtWhichItem2BAdded);
+                linkedListOperations.RemoveElementAtGivenIndex(beggningNode,  positionAtWhichItem2BAdded);
                 }
                 else{
                     Console.WriteLine("Ypu have entered wrong index ");

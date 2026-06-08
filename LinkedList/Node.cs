@@ -23,7 +23,7 @@ class LinkedListOperations
         head.data = data;
         Console.WriteLine("Element added to the node is " + data);
       }
-      else if (head.data != null && head.next == null)   //Add element to the last
+      else if (head.data != null && head.next == null)   //Add element to the last node
       {
         Node n = new Node() { data = data, next = null };
         head.next = n;
@@ -70,7 +70,7 @@ class LinkedListOperations
     {
 
       //if the first element is containing the element to be deleted
-      if (head.next == null) //if head.next is null, this means there is only one element 
+      if (head.next == null) //if head.next is null, this means this is last element.
       {
         head.data = string.Empty;
         return true;
@@ -106,27 +106,19 @@ class LinkedListOperations
 /// <returns></returns>
     internal bool AddElementAtGivenIndex(Node head,string dataToBeAdded, int index)
     {
-        //traverse to reach the node whose index has been passed
-        int currentPostion=0;
-        while(currentPostion!=index-1)
-        {
-          if(head.next==null)   //If we reach end of the node.
-          return false;
-
-          Node previousNode= head;
-          head=head.next;
-          currentPostion++;
-           if(currentPostion==index-1)
-           {
-            Node n=new Node();
-            n.next=previousNode.next;
-            n.data=dataToBeAdded;
-            previousNode.next=n;
-            return true;
-           }
-        }
-       
-
+      int nodeAtCurrentIndex=0;
+        while(head.next!= null)
+    {
+      Node previousNode=head;
+      if(nodeAtCurrentIndex+1 == index)  //if current node is the index at which element is to be added, add the element and return
+      {
+        Node n=new Node() {data=dataToBeAdded,next=previousNode.next};
+        previousNode.next=n;
+        return true;
+      }
+      head=head.next;
+      nodeAtCurrentIndex++;
+    }
       return false;
     }
 
@@ -139,24 +131,27 @@ class LinkedListOperations
     internal bool RemoveElementAtGivenIndex(Node head,int  index)
     {
        //traverse to reach the node whose index has been passed
-        int currentPostion=0;
-        while(currentPostion!=index-1)
+        int currentPostion=1;
+        while(currentPostion <=index)
         {
           if(head.next==null)   //If we reach end of the node.
           return false;
 
           Node previousNode= head;
           head=head.next;
-          currentPostion++;
-           if(currentPostion==index-1)
+         
+           if(currentPostion==index)
            {
             Node n=new Node();
             previousNode.next= head.next;
             head=null;
             return true;
            }
+            currentPostion++;
         }
         return false;
     }
+
+
 
 }
