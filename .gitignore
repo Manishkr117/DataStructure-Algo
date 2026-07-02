@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/LinearSearch/bin/Debug
+/LinearSearch/obj/Debug
+/.vs/DataStructure-Algo/FileContentIndex
+/.vs/DataStructure-Algo
+/ProblemSolving/ProblemSolving
+/ProblemSolving/141LinkedListCycle
+/ProblemSolving/.vs
