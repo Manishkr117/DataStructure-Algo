@@ -21,6 +21,7 @@ namespace LinearSearch
           int index=  performLinearSearch(numbers, target);
             if(index ==-1)
                 Console.WriteLine("The item was not found in the array.");
+            else
             Console.WriteLine($"The item was found at index: {index}");
 
             Console.ReadKey();
